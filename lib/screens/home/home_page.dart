@@ -32,13 +32,16 @@ class _HomePageState extends State<HomePage> {
           const HomeGreetings(),
           SearchBox(),
           CategorySelection(
-              selectCategoryIndex: selectCategoryIndex,
-              changeCategory: changeCategory),
+            selectCategoryIndex: selectCategoryIndex,
+            changeCategory: changeCategory,
+          ),
           HomeSuggestionSection(
-              selectCategoryIndex: selectCategoryIndex,
-              changeCategory: changeCategory),
+            selectCategoryIndex: selectCategoryIndex,
+            changeCategory: changeCategory,
+          ),
           const SizedBox(height: 16),
-          NearbyResturants(),
+          const NearbyResturants(),
+          const SizedBox(height: 16),
         ],
       ),
     ));

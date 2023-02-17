@@ -46,7 +46,7 @@ class ResturantTile extends StatelessWidget {
                   description!,
                   style: Theme.of(context).textTheme.caption?.copyWith(),
                 ),
-              if (description != null) const SizedBox(height: 8),
+              const SizedBox(height: 8),
               Row(children: [
                 ...List.generate(
                   startCount,

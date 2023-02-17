@@ -8,6 +8,7 @@ import 'package:won_food_app/core/constants/app_default.dart';
 import 'package:won_food_app/core/constants/app_icons.dart';
 import 'package:won_food_app/core/constants/network_image_with_loader.dart';
 import 'package:won_food_app/core/constants/skeleton.dart';
+import 'package:won_food_app/screens/food_details/food_details.dart';
 
 class ItemTileHorizontal extends StatelessWidget {
   const ItemTileHorizontal(
@@ -23,7 +24,7 @@ class ItemTileHorizontal extends StatelessWidget {
       child: InkWell(
         borderRadius: AppDefault.borderRadius,
         onTap: () {
-          Get.to(() => FoodDetailsPage());
+          Get.to(() => FoodDetailsPage(foodName: foodName));
         },
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: AppDefault.padding),
@@ -59,14 +60,5 @@ class ItemTileHorizontal extends StatelessWidget {
         ),
       ),
     );
-  }
-}
-
-class FoodDetailsPage extends StatelessWidget {
-  const FoodDetailsPage({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return ClipRRect();
   }
 }
