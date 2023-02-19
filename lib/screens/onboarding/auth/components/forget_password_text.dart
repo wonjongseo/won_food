@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:won_food_app/screens/onboarding/auth/components/forgot_pass_page.dart';
 
 class ForgetPasswordText extends StatelessWidget {
   const ForgetPasswordText({
@@ -17,7 +18,7 @@ class ForgetPasswordText extends StatelessWidget {
             Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => Container(),
+                  builder: (context) => ForgotPassPage(),
                 ));
           },
           child: Text(

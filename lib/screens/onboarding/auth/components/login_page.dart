@@ -1,6 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/route_manager.dart';
+import 'package:won_food_app/admin/admin_page.dart';
+import 'package:won_food_app/common.dart';
 import 'package:won_food_app/core/constants/app_default.dart';
 import 'package:won_food_app/core/constants/app_icons.dart';
 import 'package:won_food_app/screens/entrypoint/entrypoint_ui.dart';
@@ -8,9 +11,12 @@ import 'package:won_food_app/screens/onboarding/auth/components/forget_password_
 import 'package:won_food_app/screens/onboarding/auth/components/login_form.dart';
 import 'package:won_food_app/screens/onboarding/auth/components/sign_in_buttons.dart';
 
-class LoginPage extends StatelessWidget {
-  const LoginPage({super.key});
+import 'dont_have_account.dart';
 
+class LoginPage extends StatelessWidget {
+  LoginPage({super.key});
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,26 +24,20 @@ class LoginPage extends StatelessWidget {
         child: Column(
           children: [
             const Spacer(),
-            Align(
-              alignment: Alignment.centerLeft,
-              child: Padding(
-                padding: const EdgeInsets.all(AppDefault.padding),
-                child: Text(
-                  "Login to\nfind the best food.",
-                  style: Theme.of(context).textTheme.headline5,
-                ),
-              ),
-            ),
+            const HeaderAlign(text: "Login to\nfind the best food."),
             const Spacer(),
-            const LoginForm(),
+            LoginForm(
+              emailController: emailController,
+              passwordController: passwordController,
+            ),
             const ForgetPasswordText(),
             SignInButton(
               onSignIn: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const EntryPointUI(),
-                    ));
+                // TODO
+                // If User is ADMIN
+
+                Get.to(() => AdminPage());
+                // Get.to(() => EntryPointUI());
               },
               onSignupWithFacebook: () {},
             ),
@@ -48,14 +48,5 @@ class LoginPage extends StatelessWidget {
         ),
       ),
     );
-  }
-}
-
-class DontHaveAccountRow extends StatelessWidget {
-  const DontHaveAccountRow({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Container();
   }
 }

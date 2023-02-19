@@ -12,9 +12,10 @@ class HomeGreetings extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(AppDefault.padding),
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
         children: [
           Text(
-            'Hello',
+            'Good Morning Farhan,',
             style: Theme.of(context)
                 .textTheme
                 .bodyLarge
@@ -22,7 +23,7 @@ class HomeGreetings extends StatelessWidget {
           ),
           const SizedBox(height: 8),
           Text(
-            'Happy',
+            'Happy Freeyay!',
             style: Theme.of(context)
                 .textTheme
                 .headline5

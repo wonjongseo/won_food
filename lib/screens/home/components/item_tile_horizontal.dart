@@ -8,23 +8,23 @@ import 'package:won_food_app/core/constants/app_default.dart';
 import 'package:won_food_app/core/constants/app_icons.dart';
 import 'package:won_food_app/core/constants/network_image_with_loader.dart';
 import 'package:won_food_app/core/constants/skeleton.dart';
+import 'package:won_food_app/data/lists.dart';
 import 'package:won_food_app/screens/food_details/food_details.dart';
 
 class ItemTileHorizontal extends StatelessWidget {
-  const ItemTileHorizontal(
-      {super.key,
-      required this.foodName,
-      required this.description,
-      required this.imageUrl});
+  const ItemTileHorizontal({
+    super.key,
+    required this.food,
+  });
 
-  final String foodName, description, imageUrl;
+  final Food food;
   @override
   Widget build(BuildContext context) {
     return Material(
       child: InkWell(
         borderRadius: AppDefault.borderRadius,
         onTap: () {
-          Get.to(() => FoodDetailsPage(foodName: foodName));
+          Get.to(() => FoodDetailsPage(food: food));
         },
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: AppDefault.padding),
@@ -35,12 +35,13 @@ class ItemTileHorizontal extends StatelessWidget {
               children: [
                 AspectRatio(
                   aspectRatio: AppDefault.aspectRatio,
-                  child: NetworkImageWithLoader(imageUrl),
+                  child: NetworkImageWithLoader(food.imageUrl),
                 ),
                 const SizedBox(height: AppDefault.margin),
-                Text(foodName, style: Theme.of(context).textTheme.headline6),
+                Text(food.name, style: Theme.of(context).textTheme.headline6),
                 const SizedBox(height: AppDefault.margin / 2),
-                Text(description, style: Theme.of(context).textTheme.caption),
+                Text(food.description,
+                    style: Theme.of(context).textTheme.caption),
                 const SizedBox(height: AppDefault.margin),
                 Row(
                   children: [

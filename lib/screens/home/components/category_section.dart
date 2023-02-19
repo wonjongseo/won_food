@@ -24,13 +24,13 @@ class _CategorySelectionState extends State<CategorySelection> {
         padding: const EdgeInsets.only(left: AppDefault.padding),
         child: Row(
           children: List.generate(
-              homeChips.length,
+              categories.length,
               (index) => HomeChip(
                   onTap: () {
                     widget.changeCategory(index);
                   },
-                  name: homeChips[index]['name']!,
-                  icon: homeChips[index]['icon']!,
+                  name: categories[index].name,
+                  icon: categories[index].icon!,
                   isActive:
                       index == widget.selectCategoryIndex ? true : false)),
         ),

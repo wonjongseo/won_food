@@ -41,6 +41,10 @@ class _HomePageState extends State<HomePage> {
           ),
           const SizedBox(height: 16),
           const NearbyResturants(),
+          HomeSuggestionSection(
+            selectCategoryIndex: selectCategoryIndex,
+            changeCategory: changeCategory,
+          ),
           const SizedBox(height: 16),
         ],
       ),
